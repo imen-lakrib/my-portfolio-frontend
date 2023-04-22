@@ -25,7 +25,7 @@ const steps = [
   { label: 'Skills', description: 'My skills', icon: <DoneAllIcon /> },
 ];
 
-export default function VerticalLinearStepper({experiances}) {
+export default function EducationStepper({educations}) {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -43,13 +43,13 @@ export default function VerticalLinearStepper({experiances}) {
   return (
     <Box sx={{ maxWidth: 400 }}>
       <Stepper activeStep={activeStep} orientation="vertical">
-        {experiances.map(({ title, description, company, start, end }, index) => (
+        {educations.map(({ title, description, university, start, end }, index) => (
           <Step key={title}>
             <StepLabel StepIconComponent={StepIcon}>
               {title}
             </StepLabel>
             <StepContent>
-            <Chip label={company} />
+            <Chip label={university} />
               <span> {start}--{end}</span>
               <Typography>{description}</Typography>
               <Box sx={{ mb: 2 }}>
@@ -58,7 +58,7 @@ export default function VerticalLinearStepper({experiances}) {
                     variant="text"
                     onClick={handleNext}
                     sx={{ mt: 1, mr: 1 }}
-                    disabled={activeStep === experiances.length - 1}
+                    disabled={activeStep === educations.length - 1}
                   >
                     Next <KeyboardArrowRightIcon/>
                   </Button>
@@ -76,7 +76,7 @@ export default function VerticalLinearStepper({experiances}) {
           </Step>
         ))}
       </Stepper>
-      {activeStep === experiances.length && (
+      {activeStep === educations.length && (
         <Box sx={{ p: 3 }}>
           <Typography>This is my work experience. I'm always looking for new challenges.</Typography>
           <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>

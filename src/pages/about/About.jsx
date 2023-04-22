@@ -1,13 +1,18 @@
 import { Box, Container, Grid, Typography } from '@mui/material'
-import React from 'react'
+import React, { useContext } from 'react'
 import PageTitle from '../../components/customeComponents/PagesTitle'
 import SkillCard from '../../components/skills/SkillCard'
 import VerticalLinearStepper from '../../components/stepper/VerticalLinearStepper'
+import EducationStepper from '../../components/stepper/EducationStepper'
+import { SkillsContext } from '../../contexts/SkillsContext'
 
-function About() {
+function About({ experiances, educations }) {
+
+  const skills = useContext(SkillsContext);
+
   return (
     <Container>
-      <Box sx={{p:4}}>
+      <Box sx={{ p: 4 }}>
         <PageTitle PageTitle={"about-me"} symbol={"/"} subTitle={"Who am i ?"} />
         <Grid container spacing={4} >
           <Grid item xs={12} md={8}>
@@ -44,37 +49,44 @@ function About() {
         </Grid>
       </Box>
 
-      <Box sx={{p:4}}>
-      <PageTitle PageTitle={"skills"} symbol={"#"} subTitle={""} />
-      <Container >
-        <Grid container spacing={1}>
-          <Grid item xs={12} sm={6} md={3} >
-            <SkillCard />
+      <Box sx={{ p: 4 }}>
+        <PageTitle PageTitle={"skills"} symbol={"#"} subTitle={""} />
+        <Container >
+          <Grid container spacing={1}>
+
+            {skills.map(skill => {
+              return (
+                <Grid item xs={12} sm={6} md={3} >
+                  <SkillCard skill={skill} />
+                </Grid>
+
+              )
+            })}
+
           </Grid>
-        </Grid>
 
-      </Container>
-
-      </Box>
-
-      <Box sx={{p:4}}>
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
-          <PageTitle PageTitle={"work-experiance"} symbol={"#"} subTitle={""} />
-          <VerticalLinearStepper />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <PageTitle PageTitle={"education"} symbol={"#"} subTitle={""} />
-          <VerticalLinearStepper />
-        </Grid>
-
-      </Grid>
+        </Container>
 
       </Box>
 
-      
+      <Box sx={{ p: 4 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={6}>
+            <PageTitle PageTitle={"work-experiance"} symbol={"#"} subTitle={""} />
+            <VerticalLinearStepper experiances={experiances} />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <PageTitle PageTitle={"education"} symbol={"#"} subTitle={""} />
+            <EducationStepper educations={educations} />
+          </Grid>
 
-      
+        </Grid>
+
+      </Box>
+
+
+
+
 
 
     </Container>

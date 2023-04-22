@@ -18,6 +18,11 @@ import EducationAdmin from "./dashboard/EducationAdmin.jsx";
 import SkillAdmin from "./dashboard/SkillAdmin.jsx";
 import ContactAdmin from "./dashboard/ContactAdmin .jsx";
 import ProjectAdmin from "./dashboard/ProjectAdmin.jsx";
+//
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { SkillsProvider } from "./contexts/SkillsContext.jsx";
 function App() {
 
   function Auth({ children, ...rest }) {
@@ -28,18 +33,68 @@ function App() {
   }
 
 
+  // fetching data:
+  const baseUrl= "http://localhost:3010"
+  
+  useEffect(() => {
+    getExperiances()
+    getEducations()
+    getContacts()
+}, [])
+// get all experiments
+const getExperiances = () => {
+    axios.get(`${baseUrl}/experiance/`)
+        .then(res => {
+          setExperiances(res.data)
+           
+        })
+        .catch((err) => {
+          console.log(err)
+        });
+}
+
+const getEducations = () => {
+  axios.get(`${baseUrl}/education/`)
+      .then(res => {
+        setEducations(res.data)
+         
+      })
+      .catch((err) => {
+        console.log(err)
+      });
+}
+
+const getContacts = () => {
+  axios.get(`${baseUrl}/contact/`)
+      .then(res => {
+        setContacts(res.data)
+         
+      })
+      .catch((err) => {
+        console.log(err)
+      });
+}
+
+
+const [experiances, setExperiances] = useState([])
+const [educations, setEducations] = useState([])
+
+const [contacts, setContacts] = useState([])
+
+
   return (
     <BrowserRouter>
       <Container className="App" position="relative">
+      <SkillsProvider>
         <ThemeProvider theme={appTheme}>
           <SocialMedia />
 
           <NavBar />
           {/* routes */}
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home  contacts={contacts} />} />
             <Route path="/works" element={<Works />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/about" element={<About experiances={experiances} educations={educations} />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/secretpannel/login" element={<Login />} />
@@ -66,6 +121,7 @@ function App() {
 
 
         </ThemeProvider>
+        </SkillsProvider>
       </Container>
     </BrowserRouter>
   )
