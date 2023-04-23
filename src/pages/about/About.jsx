@@ -6,7 +6,7 @@ import VerticalLinearStepper from '../../components/stepper/VerticalLinearSteppe
 import EducationStepper from '../../components/stepper/EducationStepper'
 import { SkillsContext } from '../../contexts/SkillsContext'
 
-function About({ experiances, educations }) {
+function About() {
 
   const skills = useContext(SkillsContext);
 
@@ -73,11 +73,11 @@ function About({ experiances, educations }) {
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
             <PageTitle PageTitle={"work-experiance"} symbol={"#"} subTitle={""} />
-            <VerticalLinearStepper experiances={experiances} />
+            <VerticalLinearStepper  />
           </Grid>
           <Grid item xs={12} md={6}>
             <PageTitle PageTitle={"education"} symbol={"#"} subTitle={""} />
-            <EducationStepper educations={educations} />
+            <EducationStepper  />
           </Grid>
 
         </Grid>

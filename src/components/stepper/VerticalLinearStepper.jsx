@@ -1,6 +1,6 @@
 
 
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Box,
   Stepper,
@@ -18,14 +18,18 @@ import {
   School as SchoolIcon,
   DoneAll as DoneAllIcon,
 } from '@mui/icons-material';
-
+import {ExperiancesContext} from "../../contexts/ExperianceContext"
 const steps = [
   { label: 'Education', description: 'My educational qualifications', icon: <SchoolIcon /> },
   { label: 'Work Experience', description: 'My work experience', icon: <WorkIcon /> },
   { label: 'Skills', description: 'My skills', icon: <DoneAllIcon /> },
 ];
 
-export default function VerticalLinearStepper({experiances}) {
+export default function VerticalLinearStepper() {
+
+  // 
+  const experiances = useContext(ExperiancesContext);
+
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {

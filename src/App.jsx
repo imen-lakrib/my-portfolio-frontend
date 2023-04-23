@@ -26,6 +26,7 @@ import { ContactsProvider } from "./contexts/ContactsContext.jsx";
 import { EducationsProvider } from "./contexts/EducationsContext.jsx";
 import { ExperiancesProvider } from "./contexts/ExperianceContext.jsx";
 import { ProjectsProvider } from "./contexts/ProjectsContext.jsx";
+import SingleBlogPost from "./pages/blog/SingleBlogPost.jsx";
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
                         <Route path="/works" element={<Works />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/blog" element={<Blog />} />
+                        <Route path="/blogs/:id" element={<SingleBlogPost />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/secretpannel/login" element={<Login />} />
 

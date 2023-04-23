@@ -1,6 +1,6 @@
 
 
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Box,
   Stepper,
@@ -18,6 +18,7 @@ import {
   School as SchoolIcon,
   DoneAll as DoneAllIcon,
 } from '@mui/icons-material';
+import {EducationsContext} from "../../contexts/EducationsContext"
 
 const steps = [
   { label: 'Education', description: 'My educational qualifications', icon: <SchoolIcon /> },
@@ -25,7 +26,10 @@ const steps = [
   { label: 'Skills', description: 'My skills', icon: <DoneAllIcon /> },
 ];
 
-export default function EducationStepper({educations}) {
+export default function EducationStepper() {
+
+  const educations = useContext(EducationsContext);
+
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
