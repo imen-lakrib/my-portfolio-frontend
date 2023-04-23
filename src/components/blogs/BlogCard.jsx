@@ -8,7 +8,7 @@ function BlogCard({ blog }) {
   //     backgroundImage: `url("./Rectangle 22.jpg")`,
 
   const styles = {
-    backgroundImage: `url("/uploads/${blog?.image}")`,
+    backgroundImage: `url("/uploads/${blog?.imen}")`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '150px',

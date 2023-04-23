@@ -5,9 +5,11 @@ import React from 'react'
 function ProjectCard({project}) {
 
   //     backgroundImage: `url("./Rectangle 22.jpg")`,
-
+  
   const styles = {
-    backgroundImage: `url("/uploads/${project?.image}")`,
+    // backgroundImage: `url("/uploads/${project?.image}")`,
+    backgroundImage: `url("/uploads/"+project?.image)`,
+
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '150px',

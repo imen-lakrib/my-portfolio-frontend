@@ -5,17 +5,15 @@ import { useEffect, useState } from 'react';
 // material 
 import {
     Card,Table,Stack,Avatar,Button,TableRow,TableBody,TableCell,Typography,TableContainer,
-    TablePagination,Box,TableHead,CircularProgress,Container,useTheme,
+    TablePagination,Box,TableHead,CircularProgress,Container,
     OutlinedInput,InputAdornment,IconButton,FormControl,Grid,DialogActions,
-    Dialog,TextField, DialogContent,Select,MenuItem,InputLabel,DialogTitle
+    Dialog,TextField, DialogContent,DialogTitle
 } from '@mui/material';
 
-import Chip from '@mui/material/Chip';
 import DownloadingIcon from '@mui/icons-material/Downloading';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
-import { Edit, Info, PlusOne, Refresh, Search } from '@mui/icons-material';
+import { Edit, Search } from '@mui/icons-material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import SendIcon from '@mui/icons-material/Send';
 
 // components
 // Api
@@ -50,7 +48,7 @@ export default function BlogAdmin() {
     const [blogs, setBlogs] = useState([])
 
 
-    const [image, setImage] = useState("")
+    const [imen, setImen] = useState("")
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [author, setAuthor] = useState("")
@@ -62,7 +60,6 @@ export default function BlogAdmin() {
     //table UI
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
-    const theme = useTheme();
     const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - blogs.length) : 0;
     const [connectionErr, setConnectionErr] = useState(false)
     const [search, setSearch] = useState('')
@@ -76,7 +73,7 @@ export default function BlogAdmin() {
     };
 
     const TableHeadTitles = [
-        {align: "left", name:"image"},
+        {align: "left", name:"imen"},
         {align: "left", name:"title"},
         {align: "left", name:"description"},
 
@@ -156,7 +153,7 @@ export default function BlogAdmin() {
     // form of edit avatar
     const [openEditAvatar, setOpenEditAvatar] = useState(false);
     const handleClickOpenEditAvatar = (row) => {
-        setImage(row.image)
+        setImen(row.imen)
         setOpenEditAvatar(true)
     };
 
@@ -213,7 +210,7 @@ export default function BlogAdmin() {
 
     const editAvatar = () => {
         const formData = new FormData();
-        formData.append("image", image);
+        formData.append("imen", imen);
         axios.put(`http://localhost:3010/blog/image/${selected._id}`,formData,{headers: {
             "Content-Type": "multipart/form-data",
             "Authorization" : `Bearer ${localStorage.getItem("token")}`
@@ -239,12 +236,11 @@ export default function BlogAdmin() {
 
     const addData = () => {
         const formData = new FormData();
-        formData.append("image", image);
+        formData.append("imen", imen);
         formData.append("title", title);
         formData.append("description", description);
         formData.append("author", author);
         formData.append("technologies", technologies);
-
 
         axios.post('http://localhost:3010/blog/',formData,{
             headers: {
@@ -329,7 +325,7 @@ export default function BlogAdmin() {
                                                             <TableCell align="left"
                                                                 component="th" scope="row" >
                                                                 <Stack direction="row" alignItems="center" >
-                                                                    <Avatar alt="Remy Sharp" src={"/uploads/"+row.image} />
+                                                                    <Avatar alt="Remy Sharp" src={"/uploads/"+row.imen} />
                                                                    
                                                                 </Stack>
                                                             </TableCell>
@@ -528,7 +524,7 @@ export default function BlogAdmin() {
 
                         <input type="file" 
                                 onChange={(e) => {
-                                    setImage(e.target.files[0])
+                                    setImen(e.target.files[0])
                             }}
                         />
 
@@ -557,7 +553,7 @@ export default function BlogAdmin() {
                        
                                 <input type="file" 
                                 onChange={(e) => {
-                                    setImage(e.target.files[0])
+                                    setImen(e.target.files[0])
                                 }}/>
 
 <TextField id="outlined-basic" label="title" variant="outlined" value={title}
