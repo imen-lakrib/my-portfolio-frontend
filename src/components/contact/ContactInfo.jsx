@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material'
 import React from 'react'
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-function ContactInfo({ contacts }) {
+function ContactInfo() {
     return (
         <div>
             <Box sx={{ border: "1px solid gray", color: "primary.contrastText", p: 3 }}>

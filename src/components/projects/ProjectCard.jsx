@@ -2,12 +2,12 @@
 import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
 
-function ProjectCard() {
+function ProjectCard({project}) {
 
   //     backgroundImage: `url("./Rectangle 22.jpg")`,
 
   const styles = {
-    backgroundImage: `url("./Rectangle 22.jpg")`,
+    backgroundImage: `url("/uploads/${project?.image}")`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '150px',
@@ -25,13 +25,19 @@ function ProjectCard() {
 
           </Box>
 
-            <Typography sx={{p:1}} ><span>tech</span> <span>tech</span> <span>tech</span></Typography>
-
+          <Typography sx={{p:1}} >
+              {project?.technologies?.split(",").map(technology=>{
+                return(
+                  <span>{technology}</span>
+                )
+              })}
+              
+          </Typography>
 
             <Box sx={{ borderTop: '1px solid gray', width: '100%' }}/>
-            <Typography sx={{px:2, fontWeight:500, fontSize:"25px", color:"white"}}>title</Typography>
-            <Typography sx={{px:2}}>tech</Typography>
-            <Button sx={{color:"#ffffff", m:2}}  >Contact Me !!</Button>
+            <Typography sx={{px:2, fontWeight:500, fontSize:"25px", color:"white"}}>{project?.title}</Typography>
+            <Typography sx={{px:2}}>{project?.description}</Typography>
+            <Button component="a" href={project?.link} target="_blank"  sx={{color:"#ffffff", m:2}}  >Contact Me !!</Button>
 
 
 

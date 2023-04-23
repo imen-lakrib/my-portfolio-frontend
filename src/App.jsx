@@ -20,9 +20,14 @@ import ContactAdmin from "./dashboard/ContactAdmin .jsx";
 import ProjectAdmin from "./dashboard/ProjectAdmin.jsx";
 //
 
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { SkillsProvider } from "./contexts/SkillsContext.jsx";
+import { BlogsProvider } from "./contexts/BlogsContext.jsx";
+import { ContactsProvider } from "./contexts/ContactsContext.jsx";
+import { EducationsProvider } from "./contexts/EducationsContext.jsx";
+import { ExperiancesProvider } from "./contexts/ExperianceContext.jsx";
+import { ProjectsProvider } from "./contexts/ProjectsContext.jsx";
+
+
 function App() {
 
   function Auth({ children, ...rest }) {
@@ -33,95 +38,58 @@ function App() {
   }
 
 
-  // fetching data:
-  const baseUrl= "http://localhost:3010"
-  
-  useEffect(() => {
-    getExperiances()
-    getEducations()
-    getContacts()
-}, [])
-// get all experiments
-const getExperiances = () => {
-    axios.get(`${baseUrl}/experiance/`)
-        .then(res => {
-          setExperiances(res.data)
-           
-        })
-        .catch((err) => {
-          console.log(err)
-        });
-}
-
-const getEducations = () => {
-  axios.get(`${baseUrl}/education/`)
-      .then(res => {
-        setEducations(res.data)
-         
-      })
-      .catch((err) => {
-        console.log(err)
-      });
-}
-
-const getContacts = () => {
-  axios.get(`${baseUrl}/contact/`)
-      .then(res => {
-        setContacts(res.data)
-         
-      })
-      .catch((err) => {
-        console.log(err)
-      });
-}
-
-
-const [experiances, setExperiances] = useState([])
-const [educations, setEducations] = useState([])
-
-const [contacts, setContacts] = useState([])
 
 
   return (
     <BrowserRouter>
       <Container className="App" position="relative">
-      <SkillsProvider>
-        <ThemeProvider theme={appTheme}>
-          <SocialMedia />
+        <ProjectsProvider>
+          <ExperiancesProvider>
+            <EducationsProvider>
+              <ContactsProvider>
+                <BlogsProvider>
+                  <SkillsProvider>
+                    <ThemeProvider theme={appTheme}>
+                      <SocialMedia />
 
-          <NavBar />
-          {/* routes */}
-          <Routes>
-            <Route path="/" element={<Home  contacts={contacts} />} />
-            <Route path="/works" element={<Works />} />
-            <Route path="/about" element={<About experiances={experiances} educations={educations} />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/secretpannel/login" element={<Login />} />
-
-
-            {/* only admin */}
-            <Route path="/dashboard" element={<Auth><Dashboard /></Auth>} >
-              <Route path="BlogAdmin" element={<BlogAdmin />} />
-              <Route path="ExperianceAdmin" element={<ExperianceAdmin />} />
-              <Route path="EducationAdmin" element={<EducationAdmin />} />
-              <Route path="SkillAdmin" element={<SkillAdmin />} />
-              <Route path="ContactAdmin" element={<ContactAdmin />} />
-              <Route path="projectAdmin" element={<ProjectAdmin />} />
-              
-            </Route>
+                      <NavBar />
+                      {/* routes */}
+                      <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/works" element={<Works />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/blog" element={<Blog />} />
+                        <Route path="/contact" element={<Contact />} />
+                        <Route path="/secretpannel/login" element={<Login />} />
 
 
+                        {/* only admin */}
+                        <Route path="/dashboard" element={<Auth><Dashboard /></Auth>} >
+                          <Route path="BlogAdmin" element={<BlogAdmin />} />
+                          <Route path="ExperianceAdmin" element={<ExperianceAdmin />} />
+                          <Route path="EducationAdmin" element={<EducationAdmin />} />
+                          <Route path="SkillAdmin" element={<SkillAdmin />} />
+                          <Route path="ContactAdmin" element={<ContactAdmin />} />
+                          <Route path="projectAdmin" element={<ProjectAdmin />} />
 
-
-          </Routes>
-
-          <Footer />
+                        </Route>
 
 
 
-        </ThemeProvider>
-        </SkillsProvider>
+
+                      </Routes>
+
+                      <Footer />
+
+
+
+                    </ThemeProvider>
+                  </SkillsProvider>
+                </BlogsProvider>
+              </ContactsProvider>
+            </EducationsProvider>
+          </ExperiancesProvider>
+        </ProjectsProvider>
       </Container>
     </BrowserRouter>
   )

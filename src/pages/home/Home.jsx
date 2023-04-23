@@ -5,7 +5,7 @@ import SkillsSection from '../../components/skills/SkillsSection'
 import AboutSection from '../../components/about/AboutSection'
 import ContactSection from '../../components/contact/ContactSection'
 
-function Home({projects, contacts}) {
+function Home() {
 
  
 
@@ -13,11 +13,11 @@ function Home({projects, contacts}) {
 
   return (
     <div>
-        <HeroSection contacts={contacts}/>
-        <ProjectsSection projects={projects}/>
+        <HeroSection />
+        <ProjectsSection />
         <SkillsSection />
-        <AboutSection contacts={contacts}/>
-        <ContactSection contacts={contacts}/>
+        <AboutSection />
+        <ContactSection />
     </div>
   )
 }

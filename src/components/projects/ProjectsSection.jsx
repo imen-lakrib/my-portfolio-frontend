@@ -1,24 +1,27 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import SectionTitle from '../customeComponents/SectionTitle'
 import {  Container, Grid } from '@mui/material'
 import ProjectCard from './ProjectCard'
+import { ProjectsContext } from '../../contexts/ProjectsContext';
 
 function ProjectsSection() {
+  const projects = useContext(ProjectsContext);
+
   return (
     <Container>
       <SectionTitle SectionTitle={"Latest Projects"} link={"/works"}/>
       <Grid container spacing={4}>
-        <Grid item xs={12} md={4}>
-          <ProjectCard />
+        {projects.map(project=>{
+          return(
+            <Grid item xs={12} md={4}>
+          <ProjectCard project={project} />
 
         </Grid>
-        <Grid item xs={12} md={4}>
-          <ProjectCard />
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <ProjectCard />
 
-        </Grid>
+          )
+        })}
+        
+      
 
       </Grid>
 

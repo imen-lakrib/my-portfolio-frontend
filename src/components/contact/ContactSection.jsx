@@ -4,7 +4,7 @@ import {  Container, Grid } from '@mui/material'
 import Brief from './Brief'
 import ContactInfo from './ContactInfo'
 
-function ContactSection({contacts}) {
+function ContactSection() {
   return (
     <Container>
         <SectionTitle SectionTitle={"Contact Me"} link={"/contact"}/>
@@ -15,7 +15,7 @@ function ContactSection({contacts}) {
         <Grid item xs={0}  md={2}>
         </Grid>
         <Grid item xs={12}  md={4}>
-          <ContactInfo contacts={contacts}/>
+          <ContactInfo />
         </Grid>
        
       </Grid>

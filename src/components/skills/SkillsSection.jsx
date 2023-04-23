@@ -1,33 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import SectionTitle from '../customeComponents/SectionTitle'
 import { Box, Container, Grid } from '@mui/material'
 import SkillCard from './SkillCard'
-import axios from 'axios'
+import { SkillsContext } from '../../contexts/SkillsContext';
 
 function SkillsSection() {
 
-  // fetching data:
-  const baseUrl= "http://localhost:3010"
-  
-  useEffect(() => {
-    getSkills()
-   
-}, [])
+  const skills = useContext(SkillsContext);
 
 
 
-const getSkills = () => {
-  axios.get(`${baseUrl}/skill/`)
-      .then(res => {
-        setSkills(res.data)
-         
-      })
-      .catch((err) => {
-        // Handle error
-        console.log(err);
-      });
-}
-const [skills, setSkills] = useState([])
+
 
   
   return (
