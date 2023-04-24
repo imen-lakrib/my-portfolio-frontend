@@ -8,7 +8,7 @@ function HeroSection() {
   return (
     <>
     <Container sx={{alignItems:"center", justifyContent:"space-between", py:5,
-    display:{xs:"block", sm:"flex", md:'flex'}}}  color="primary.contrastText">
+    display:{xs:"block", sm:"block", md:'flex'}}}  color="primary.contrastText">
         <Descreption/>
         <Image/>
     </Container>

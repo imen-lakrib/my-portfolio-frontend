@@ -19,7 +19,7 @@ function SkillsSection() {
       <SectionTitle SectionTitle={"My Skills"} link={"/about"} />
       <Container >
         <Grid container spacing={4}>
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} md={2}>
             <Box sx={{ display: { xs: "none", md: "block" } }}>
               <img src='./Group 36.png' alt='skills' />
 
@@ -28,11 +28,11 @@ function SkillsSection() {
           <Grid item xs={12} md={2}>
 
           </Grid>
-          <Grid item xs={12} md={7}>
+          <Grid item xs={12} md={8}>
 
             {isLoading ? <Loader /> : (<Grid container spacing={1}>
               {skills.map((skill, index) => (
-                <Grid item xs={12} sm={6} md={4} key={index}>
+                <Grid item xs={12} md={6} lg={4} key={index}>
                   <SkillCard skill={skill} />
                 </Grid>
               ))}

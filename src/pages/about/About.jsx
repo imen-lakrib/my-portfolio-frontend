@@ -16,7 +16,7 @@ function About() {
       <Box sx={{ p: 4 }}>
         <PageTitle PageTitle={"about-me"} symbol={"/"} subTitle={"Who am i ?"} />
         <Grid container spacing={4} >
-          <Grid item xs={12} md={8}>
+          <Grid item >
             <Box color="primary.contrastText" >
               <Typography  >Hello, i’m Imen Lakrib!</Typography>
 
@@ -39,13 +39,7 @@ function About() {
             </Box>
           </Grid>
 
-          <Grid item xs={12} md={4}>
-            <Box sx={{ width: "400px" }} >
-              <img style={{ width: "100%" }} src="/chesss.png" alt='chess' />
-
-            </Box>
-
-          </Grid>
+         
 
         </Grid>
       </Box>
@@ -57,7 +51,7 @@ function About() {
 
             {skills.map((skill, index) => {
               return (
-                <Grid item key={index} xs={12} sm={6} md={3} >
+                <Grid item key={index} xs={12} md={6} lg={4} >
                   <SkillCard skill={skill} />
                 </Grid>
 

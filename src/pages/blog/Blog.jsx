@@ -7,7 +7,6 @@ import Loader from '../../components/Loader'
 
 function Blog() {
   const {blogs,isLoading } = useContext(BlogsContext)
-  // const isLoading= useContext(BlogsContext)
 
   return (
 
@@ -18,7 +17,7 @@ function Blog() {
       {isLoading? <Loader/>:(<Grid container spacing={4}>
         {blogs.map((blog, index)=>{
           return(
-            <Grid key={index} item xs={12} md={4}>
+            <Grid key={index} item xs={12} md={6} lg={4}>
           <BlogCard blog={blog} />
 
         </Grid>

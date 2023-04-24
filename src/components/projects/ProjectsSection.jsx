@@ -14,7 +14,7 @@ function ProjectsSection() {
       <SectionTitle SectionTitle={"Latest Projects"} link={"/works"} />
       {isLoading? <Loader/>: (<Grid container spacing={4}>
         {firstThree.map((project, index) => (
-          <Grid item xs={12} md={4} key={index}>
+          <Grid item xs={12} md={6} lg={4} key={index}>
             <ProjectCard project={project} />
           </Grid>
         ))}

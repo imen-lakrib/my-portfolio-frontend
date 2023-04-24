@@ -8,11 +8,11 @@ function SectionTitle({ SectionTitle, link }) {
     return (
 
         // sx={{fontSize:{sx:"20px", md:'25px'}}}
-        <Container sx={{display:'flex', justifyContent:"space-between", my:10}}>
-            <div style={{color:"#ffffff", display: "flex", justifyContent: "space-flex-start", alignItems: "center", margin: "0 10px" }} >
+        <Container sx={{ display: 'flex', justifyContent: "space-between", my: 10 }}>
+            <div style={{ color: "#ffffff", display: "flex", justifyContent: "space-flex-start", alignItems: "center", margin: "0 10px" }} >
                 <TagIcon sx={{ color: "secondary.main", fontSize: "20px" }} />
                 <Typography sx={{
-                    fontWeight: 500, fontSize: { xs: "15px", sm: "15px", md: '25px' },
+                    fontWeight: 500, fontSize: {xs:"13px", sm: "15px", md: '20px' },
                     textDecoration: 'none',
                     position: 'relative',
                     '&::after': {
@@ -29,9 +29,11 @@ function SectionTitle({ SectionTitle, link }) {
                         width: '100%',
                     },
                 }} >{SectionTitle.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())}</Typography>
-                <Box sx={{ borderTop: '1px solid #FFDF39',width:{xs:"0",sm:'40px', md:'350px'} }}/>
+                <Box sx={{ borderTop: '1px solid #FFDF39', width: { xs: "0", sm: '40px', md: '300px' } }} />
             </div>
-            <Button component={Link} to={link} sx={{color:"white"}} variant="text" endIcon={<ArrowForwardIcon />}>View all</Button>
+            <Button component={Link} to={link} sx={{ color: "white" }} variant="text" endIcon={<ArrowForwardIcon />}>
+                <Typography sx={{ display: {xs:"none", sm: "none" , md:"block"} }}>View all</Typography>
+            </Button>
 
         </Container>
 
