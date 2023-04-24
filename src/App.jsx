@@ -9,7 +9,6 @@ import Footer from "./components/footer/Footer.jsx";
 import Works from "./pages/work/Works.jsx";
 import About from "./pages/about/About.jsx";
 import Blog from "./pages/blog/Blog.jsx";
-import Contact from "./pages/contact/Contact.jsx";
 import Dashboard from "./dashboard/Dashboard.jsx";
 import BlogAdmin from "./dashboard/BlogAdmin.jsx";
 import Login from "./dashboard/Login.jsx";
@@ -62,7 +61,6 @@ function App() {
                         <Route path="/about" element={<About />} />
                         <Route path="/blog" element={<Blog />} />
                         <Route path="/blogs/:id" element={<SingleBlogPost />} />
-                        <Route path="/contact" element={<Contact />} />
                         <Route path="/secretpannel/login" element={<Login />} />
 
 
