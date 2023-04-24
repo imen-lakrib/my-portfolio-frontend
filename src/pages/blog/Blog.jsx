@@ -14,9 +14,9 @@ function Blog() {
     <Container>
       <PageTitle PageTitle={"Blog"} symbol={"/"} subTitle={"what I'm thinking about ?"} />
       <Grid container spacing={4}>
-        {blogs.map(blog=>{
+        {blogs.map((blog, index)=>{
           return(
-            <Grid item xs={12} md={4}>
+            <Grid key={index} item xs={12} md={4}>
           <BlogCard blog={blog} />
 
         </Grid>

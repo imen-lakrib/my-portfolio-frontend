@@ -329,7 +329,7 @@ export default function ProjectAdmin() {
                                                             <TableCell align="left"
                                                                 component="th" scope="row" >
                                                                 <Stack direction="row" alignItems="center" >
-                                                                    <Avatar alt="Remy Sharp" src={"/uploads/"+row.image} />
+                                                                    <Avatar alt="Remy Sharp" src={"http://localhost:3010/uploads/"+row.image} />
                                                                    
                                                                 </Stack>
                                                             </TableCell>

@@ -12,7 +12,7 @@ function SkillsSection() {
 
 
 
-  
+
   return (
     <Container >
       <SectionTitle SectionTitle={"My Skills"} link={"/about"} />
@@ -30,30 +30,11 @@ function SkillsSection() {
           <Grid item xs={12} md={7}>
 
             <Grid container spacing={1}>
-
-              {skills.map(skill => {
-                return (
-
-                  <Grid item xs={12} sm={6} md={4} >
-                    <SkillCard skill={skill}/>
-                  </Grid>
-                )
-              })}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+              {skills.map((skill, index) => (
+                <Grid item xs={12} sm={6} md={4} key={index}>
+                  <SkillCard skill={skill} />
+                </Grid>
+              ))}
             </Grid>
           </Grid>
 

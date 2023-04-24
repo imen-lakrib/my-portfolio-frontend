@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 
 // material 
 import {
-    Card,Table,Stack,Avatar,Button,TableRow,TableBody,TableCell,Typography,TableContainer,
-    TablePagination,Box,TableHead,CircularProgress,Container,
-    OutlinedInput,InputAdornment,IconButton,FormControl,Grid,DialogActions,
-    Dialog,TextField, DialogContent,DialogTitle
+    Card, Table, Stack, Avatar, Button, TableRow, TableBody, TableCell, Typography, TableContainer,
+    TablePagination, Box, TableHead, CircularProgress, Container,
+    OutlinedInput, InputAdornment, IconButton, FormControl, Grid, DialogActions,
+    Dialog, TextField, DialogContent, DialogTitle
 } from '@mui/material';
 
 import DownloadingIcon from '@mui/icons-material/Downloading';
@@ -39,7 +39,7 @@ export default function BlogAdmin() {
                 setConnectionErr(true)
             });
     }
-    
+
 
 
     // data
@@ -54,8 +54,8 @@ export default function BlogAdmin() {
     const [author, setAuthor] = useState("")
     const [technologies, setTechnologies] = useState("")
 
-    
-    
+
+
 
     //table UI
     const [page, setPage] = useState(0);
@@ -73,19 +73,19 @@ export default function BlogAdmin() {
     };
 
     const TableHeadTitles = [
-        {align: "left", name:"imen"},
-        {align: "left", name:"title"},
-        {align: "left", name:"description"},
+        { align: "left", name: "imen" },
+        { align: "left", name: "title" },
+        { align: "left", name: "description" },
 
-        {align: "left", name:"author"},
-        {align: "left", name:"technologies"},
-      
-        {align: "center", name:"Actions"},
+        { align: "left", name: "author" },
+        { align: "left", name: "technologies" },
+
+        { align: "center", name: "Actions" },
     ]
     ////////////////////////////////////////////////////////////
 
 
-    
+
 
 
     // form of delete
@@ -117,7 +117,7 @@ export default function BlogAdmin() {
                     êtes-vous sûr de vouloir supprimer ?
                 </DialogTitle>
                 <DialogContent >
-                    
+
                     <Typography>{selected.name}</Typography>
 
                     <DialogActions>
@@ -185,22 +185,22 @@ export default function BlogAdmin() {
     };
 
 
- 
-    
+
+
 
     // CRUD: 
-    
-            
+
+
 
     const editData = () => {
         axios.put(`http://localhost:3010/blog/${selected._id}`, {
-            title : title,
+            title: title,
             description: description,
             author: author,
             technologies: technologies
         }, {
-            headers : {
-                "Authorization" : `Bearer ${localStorage.getItem("token")}`
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
             }
         })
             .then((res) => {
@@ -211,12 +211,14 @@ export default function BlogAdmin() {
     const editAvatar = () => {
         const formData = new FormData();
         formData.append("imen", imen);
-        axios.put(`http://localhost:3010/blog/image/${selected._id}`,formData,{headers: {
-            "Content-Type": "multipart/form-data",
-            "Authorization" : `Bearer ${localStorage.getItem("token")}`
-          },})
+        axios.put(`http://localhost:3010/blog/image/${selected._id}`, formData, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            },
+        })
             .then((res) => {
-                getBlogs(); 
+                getBlogs();
             })
     }
 
@@ -224,10 +226,10 @@ export default function BlogAdmin() {
     const deleteData = (id) => {
 
         axios.delete(`http://localhost:3010/blog/${id}`, {
-                    headers : {
-                        "Authorization" : `Bearer ${localStorage.getItem("token")}`
-                    }
-                })
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            }
+        })
             .then(() => {
                 getBlogs();
             })
@@ -242,15 +244,15 @@ export default function BlogAdmin() {
         formData.append("author", author);
         formData.append("technologies", technologies);
 
-        axios.post('http://localhost:3010/blog/',formData,{
+        axios.post('http://localhost:3010/blog/', formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
-                "Authorization" : `Bearer ${localStorage.getItem("token")}`
-              },
-            }
-              
-            
-            )
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            },
+        }
+
+
+        )
             .then((res) => {
                 if (res.status === 200) {
                     getBlogs()
@@ -264,54 +266,54 @@ export default function BlogAdmin() {
             <Stack sx={{ p: 1 }} direction="row" alignItems="center" justifyContent="space-between" >
                 <Typography variant="h4" gutterBottom>
                     Blogs management
-                </Typography> 
+                </Typography>
                 <Button variant="outlined" color='secondary' onClick={handleClickOpenAdd} startIcon={<PersonAddAltIcon />}>
                     Ajouter
                 </Button>
             </Stack>
             <Box >
-                <Card sx={{margin: "5px"}}>
+                <Card sx={{ margin: "5px" }}>
                     <Grid Grid container spacing={2}>
                         <Grid xs={12} sx={{ padding: "20px" }}>
-                        
-                        <Container>
-                            <Box sx={{ m: 1  }}>
-                                <Grid sx={{textAlign : "left", padding: 1}}>
-                                    <FormControl sx={{ mx: 1, width: '50%' }} variant="outlined">
-                                        <OutlinedInput
-                                            size='small'
-                                            placeholder='Chercher'
-                                            type='text'
-                                            onChange={(e) => { setSearch(e.target.value) }}
-                                            value={search}
-                                            endAdornment={
-                                                <InputAdornment position="end">
-                                                    <IconButton edge="end">
-                                                        <Search/>
-                                                    </IconButton>
-                                                </InputAdornment>
-                                            }/>
-                                    </FormControl>
-                                    
-                                </Grid>
-                                
-                           
-                            </Box>
-                            
+
+                            <Container>
+                                <Box sx={{ m: 1 }}>
+                                    <Grid sx={{ textAlign: "left", padding: 1 }}>
+                                        <FormControl sx={{ mx: 1, width: '50%' }} variant="outlined">
+                                            <OutlinedInput
+                                                size='small'
+                                                placeholder='Chercher'
+                                                type='text'
+                                                onChange={(e) => { setSearch(e.target.value) }}
+                                                value={search}
+                                                endAdornment={
+                                                    <InputAdornment position="end">
+                                                        <IconButton edge="end">
+                                                            <Search />
+                                                        </IconButton>
+                                                    </InputAdornment>
+                                                } />
+                                        </FormControl>
+
+                                    </Grid>
+
+
+                                </Box>
+
                                 <TableContainer>
                                     <Table size='small'>
                                         <TableHead sx={{ background: '#e9ecef' }}>
                                             <TableRow>
-                                                {TableHeadTitles.map(e=> {
-                                                    return(<TableCell key={e.name} align={e.align}>{e.name}</TableCell>)
+                                                {TableHeadTitles.map(e => {
+                                                    return (<TableCell key={e.name} align={e.align}>{e.name}</TableCell>)
                                                 })}
-                                            
+
                                             </TableRow>
                                         </TableHead>
 
                                         <TableBody>
                                             {!loading && blogs
-                                                .filter(e => e.title.toLowerCase().includes(search.toLowerCase()) )
+                                                .filter(e => e.title.toLowerCase().includes(search.toLowerCase()))
                                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                                 .map((row) => {
                                                     return (
@@ -319,14 +321,16 @@ export default function BlogAdmin() {
                                                             hover
                                                             key={row._id}
                                                             tabIndex={-1}
-                                                             
+
                                                         >
-                                                            
+
                                                             <TableCell align="left"
                                                                 component="th" scope="row" >
                                                                 <Stack direction="row" alignItems="center" >
-                                                                    <Avatar alt="Remy Sharp" src={"/uploads/"+row.imen} />
-                                                                   
+                                                                    {/* <Avatar alt="Remy Sharp" src={"/uploads/" + row.imen} /> */}
+                                                                    <Avatar alt="Remy Sharp" src={"http://localhost:3010/uploads/" + row.imen} />
+
+
                                                                 </Stack>
                                                             </TableCell>
                                                             <TableCell align="left"
@@ -337,8 +341,8 @@ export default function BlogAdmin() {
                                                                     </Typography>
                                                                 </Stack>
                                                             </TableCell>
-                                                            
-                                                           
+
+
                                                             <TableCell align="left"
                                                                 component="th" scope="row" >
                                                                 <Stack direction="row" alignItems="left" spacing={2}>
@@ -363,32 +367,34 @@ export default function BlogAdmin() {
                                                                     </Typography>
                                                                 </Stack>
                                                             </TableCell>
-                                                            
-                                                            
-                                                            
+
+
+
 
                                                             <TableCell align="center">
-                                                                    <IconButton color="error" onClick={() => deleteData(row._id)} >
-                                                                        <DeleteIcon />
-                                                                    </IconButton>
-                                                                    <IconButton
-                                                                        color="primary"
-                                                                        onClick={() => {
-                                                                            setSelected(row)
-                                                                            handleClickOpenEdit(row)}}
-                                                                    >
-                                                                        <Edit />
-                                                                    </IconButton>
-                                                                    <IconButton
-                                                                        color="secondary"
-                                                                        onClick={() => {
-                                                                            setSelected(row)
-                                                                            handleClickOpenEditAvatar(row)}}
-                                                                    >
-                                                                        <DownloadingIcon />
-                                                                    </IconButton>
+                                                                <IconButton color="error" onClick={() => deleteData(row._id)} >
+                                                                    <DeleteIcon />
+                                                                </IconButton>
+                                                                <IconButton
+                                                                    color="primary"
+                                                                    onClick={() => {
+                                                                        setSelected(row)
+                                                                        handleClickOpenEdit(row)
+                                                                    }}
+                                                                >
+                                                                    <Edit />
+                                                                </IconButton>
+                                                                <IconButton
+                                                                    color="secondary"
+                                                                    onClick={() => {
+                                                                        setSelected(row)
+                                                                        handleClickOpenEditAvatar(row)
+                                                                    }}
+                                                                >
+                                                                    <DownloadingIcon />
+                                                                </IconButton>
                                                             </TableCell>
-                                                           
+
 
                                                         </TableRow>
                                                     );
@@ -466,8 +472,8 @@ export default function BlogAdmin() {
                                         onRowsPerPageChange={handleChangeRowsPerPage}
                                     />}
                             </Container>
-                                
-                            
+
+
                         </Grid>
                     </Grid>
                 </Card>
@@ -489,19 +495,19 @@ export default function BlogAdmin() {
                     <form>
 
                         <TextField id="outlined-basic" label="title" variant="outlined" value={title}
-                            onChange={(e) => {setTitle(e.target.value) }}fullWidth sx={{ margin: "20px 0" }} />
-                        
-                        <TextField id="outlined-basic" label="description" variant="outlined" value={description}
-                            onChange={(e) => {setDescription(e.target.value) }}fullWidth sx={{ margin: "20px 0" }} />
-                        
-                        <TextField id="outlined-basic" label="author" variant="outlined" value={author}
-                            onChange={(e) => {setAuthor(e.target.value) }}fullWidth sx={{ margin: "20px 0" }} />
-                        
-                        <TextField id="outlined-basic" label="technologies" variant="outlined" value={technologies}
-                            onChange={(e) => {setTechnologies(e.target.value) }}fullWidth sx={{ margin: "20px 0" }} />
-                        
+                            onChange={(e) => { setTitle(e.target.value) }} fullWidth sx={{ margin: "20px 0" }} />
 
-                        
+                        <TextField id="outlined-basic" label="description" variant="outlined" value={description}
+                            onChange={(e) => { setDescription(e.target.value) }} fullWidth sx={{ margin: "20px 0" }} />
+
+                        <TextField id="outlined-basic" label="author" variant="outlined" value={author}
+                            onChange={(e) => { setAuthor(e.target.value) }} fullWidth sx={{ margin: "20px 0" }} />
+
+                        <TextField id="outlined-basic" label="technologies" variant="outlined" value={technologies}
+                            onChange={(e) => { setTechnologies(e.target.value) }} fullWidth sx={{ margin: "20px 0" }} />
+
+
+
                         <DialogActions>
                             <Button onClick={handleCloseEdit} autoFocus>Cancel</Button>
                             <Button onClick={handleSubmitEdit}>edit</Button>
@@ -522,13 +528,13 @@ export default function BlogAdmin() {
                     </Typography>
                     <form>
 
-                        <input type="file" 
-                                onChange={(e) => {
-                                    setImen(e.target.files[0])
+                        <input type="file"
+                            onChange={(e) => {
+                                setImen(e.target.files[0])
                             }}
                         />
 
-                        
+
                         <DialogActions>
                             <Button onClick={handleCloseEditAvatar} autoFocus>Cancel</Button>
                             <Button onClick={handleSubmitEditAvatar}>edit</Button>
@@ -550,24 +556,24 @@ export default function BlogAdmin() {
                         Ajouter un Raison
                     </Typography>
                     <form>
-                       
-                                <input type="file" 
-                                onChange={(e) => {
-                                    setImen(e.target.files[0])
-                                }}/>
 
-<TextField id="outlined-basic" label="title" variant="outlined" value={title}
-                            onChange={(e) => {setTitle(e.target.value) }}fullWidth sx={{ margin: "20px 0" }} />
-                        
+                        <input type="file"
+                            onChange={(e) => {
+                                setImen(e.target.files[0])
+                            }} />
+
+                        <TextField id="outlined-basic" label="title" variant="outlined" value={title}
+                            onChange={(e) => { setTitle(e.target.value) }} fullWidth sx={{ margin: "20px 0" }} />
+
                         <TextField id="outlined-basic" label="description" variant="outlined" value={description}
-                            onChange={(e) => {setDescription(e.target.value) }}fullWidth sx={{ margin: "20px 0" }} />
-                        
+                            onChange={(e) => { setDescription(e.target.value) }} fullWidth sx={{ margin: "20px 0" }} />
+
                         <TextField id="outlined-basic" label="author" variant="outlined" value={author}
-                            onChange={(e) => {setAuthor(e.target.value) }}fullWidth sx={{ margin: "20px 0" }} />
-                        
+                            onChange={(e) => { setAuthor(e.target.value) }} fullWidth sx={{ margin: "20px 0" }} />
+
                         <TextField id="outlined-basic" label="technologies" variant="outlined" value={technologies}
-                            onChange={(e) => {setTechnologies(e.target.value) }}fullWidth sx={{ margin: "20px 0" }} />
-                        
+                            onChange={(e) => { setTechnologies(e.target.value) }} fullWidth sx={{ margin: "20px 0" }} />
+
 
 
                         <DialogActions>

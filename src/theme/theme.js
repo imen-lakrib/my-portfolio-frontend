@@ -15,7 +15,7 @@ export const appTheme = createTheme({
       defaultProps: {
         disableElevation: true,
         variant:"outlined",
-        borderColor:"#FFDF39"
+        bordercolor:"#FFDF39"
       },
       styleOverrides: {
         root: {
@@ -105,7 +105,7 @@ export const appTheme = createTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         notchedOutline: {
-          borderColor: '#E6E8F0'
+          bordercolor: '#E6E8F0'
         }
       }
     },

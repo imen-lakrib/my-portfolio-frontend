@@ -8,7 +8,7 @@ function BlogCard({ blog }) {
   //     backgroundImage: `url("./Rectangle 22.jpg")`,
 
   const styles = {
-    backgroundImage: `url("/uploads/${blog?.imen}")`,
+    backgroundImage: `url("http://localhost:3010/uploads/${blog?.imen}")`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '150px',
@@ -26,13 +26,10 @@ function BlogCard({ blog }) {
 
         </Box>
 
-        <Typography sx={{ p: 1 }} >
-          {blog?.technologies?.split(",").map(technology => {
-            return (
-              <span>{technology}</span>
-            )
-          })}
-
+        <Typography sx={{ p: 1 }}>
+          {blog?.technologies?.split(",").map((technology, index) => (
+            <span key={index}>{technology}</span>
+          ))}
         </Typography>
 
         <Box sx={{ borderTop: '1px solid gray', width: '100%' }} />
@@ -40,13 +37,13 @@ function BlogCard({ blog }) {
         <Typography sx={{ px: 2 }}>{blog?.description}</Typography>
 
         <Link to={`/blogs/${blog?._id}`}>
-        <Button component="a"
-          target="_blank" sx={{ color: "#ffffff", m: 2 }}  >See More !!</Button>
+          <Button component="a"
+            target="_blank" sx={{ color: "#ffffff", m: 2 }}  >See More !!</Button>
 
         </Link>
 
 
-       
+
 
 
 

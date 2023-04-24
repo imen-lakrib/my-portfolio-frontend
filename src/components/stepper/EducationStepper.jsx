@@ -18,7 +18,7 @@ import {
   School as SchoolIcon,
   DoneAll as DoneAllIcon,
 } from '@mui/icons-material';
-import {EducationsContext} from "../../contexts/EducationsContext"
+import { EducationsContext } from "../../contexts/EducationsContext"
 
 const steps = [
   { label: 'Education', description: 'My educational qualifications', icon: <SchoolIcon /> },
@@ -53,7 +53,7 @@ export default function EducationStepper() {
               {title}
             </StepLabel>
             <StepContent>
-            <Chip label={university} />
+              <Chip label={university} />
               <span> {start}--{end}</span>
               <Typography>{description}</Typography>
               <Box sx={{ mb: 2 }}>
@@ -64,7 +64,7 @@ export default function EducationStepper() {
                     sx={{ mt: 1, mr: 1 }}
                     disabled={activeStep === educations.length - 1}
                   >
-                    Next <KeyboardArrowRightIcon/>
+                    Next <KeyboardArrowRightIcon />
                   </Button>
                   <Button
                     variant="text"
@@ -72,7 +72,7 @@ export default function EducationStepper() {
                     sx={{ mt: 1, mr: 1 }}
                     disabled={activeStep === 0}
                   >
-                    <KeyboardArrowLeftIcon/> Back
+                    <KeyboardArrowLeftIcon /> Back
                   </Button>
                 </div>
               </Box>
@@ -107,7 +107,7 @@ function StepIcon(props) {
         },
       }}
     >
-      {completed ? <DoneAllIcon /> : active ? <WorkIcon /> : <DoneAllIcon/>}
+      {completed ? <DoneAllIcon /> : active ? <WorkIcon /> : <DoneAllIcon />}
     </Box>
   );
 }

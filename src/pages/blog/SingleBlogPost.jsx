@@ -38,9 +38,7 @@ function SingleBlogPost() {
                 <Typography sx={{fontWeight:500, fontSize:{xs:"15px", sm:"15px", md:'25px'}}}>{blogPost?.title}</Typography>
             </div>
             
-            <img src={"/uploads/"+blogPost?.imen} alt='test'/>
-            <img alt='blogimage' src={`/uploads/${blogPost?.imen}`}/>
-            {console.log("/uploads/"+blogPost?.imen)}
+            <img alt='blogimage' src={`http://localhost:3010/uploads/${blogPost?.imen}`}/>
             <Typography sx={{p:2}} color="primary.contrastText">{blogPost?.description}</Typography>
         </Box>
     </Container>
