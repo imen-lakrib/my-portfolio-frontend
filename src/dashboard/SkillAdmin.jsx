@@ -243,7 +243,7 @@ export default function SkillAdmin() {
                                     <FormControl sx={{ mx: 1, width: '50%' }} variant="outlined">
                                         <OutlinedInput
                                             size='small'
-                                            placeholder='Chercher'
+                                            placeholder='Search'
                                             type='text'
                                             onChange={(e) => { setSearch(e.target.value) }}
                                             value={search}
@@ -397,7 +397,7 @@ export default function SkillAdmin() {
                                         count={skills.length}
                                         rowsPerPage={rowsPerPage}
                                         page={page}
-                                        labelRowsPerPage={"Element par page"}
+                                        labelRowsPerPage={"Element in page"}
                                         onPageChange={handleChangePage}
                                         onRowsPerPageChange={handleChangeRowsPerPage}
                                     />}
@@ -478,7 +478,7 @@ export default function SkillAdmin() {
 
                         <DialogActions>
                             <Button onClick={handleCloseAdd} autoFocus>Cancel</Button>
-                            <Button onClick={handleSubmitAdd}>Ajouter</Button>
+                            <Button onClick={handleSubmitAdd}>Add</Button>
                         </DialogActions>
                     </form>
                 </DialogContent>

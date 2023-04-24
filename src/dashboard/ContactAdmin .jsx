@@ -271,7 +271,7 @@ export default function ContactAdmin() {
                                         <FormControl sx={{ mx: 1, width: '50%' }} variant="outlined">
                                             <OutlinedInput
                                                 size='small'
-                                                placeholder='Chercher'
+                                                placeholder='Search'
                                                 type='text'
                                                 onChange={(e) => { setSearch(e.target.value) }}
                                                 value={search}
@@ -454,7 +454,7 @@ export default function ContactAdmin() {
                                         count={contacts.length}
                                         rowsPerPage={rowsPerPage}
                                         page={page}
-                                        labelRowsPerPage={"Element par page"}
+                                        labelRowsPerPage={"Element in page"}
                                         onPageChange={handleChangePage}
                                         onRowsPerPageChange={handleChangeRowsPerPage}
                                     />}
@@ -533,7 +533,7 @@ export default function ContactAdmin() {
                 aria-describedby="alert-dialog-description">
                 <DialogContent sx={{ padding: "20px 40px" }}>
                     <Typography sx={{ fontSize: '40px', fontWeight: "bold" }}>
-                        Ajouter un contact
+                        Add contact
                     </Typography>
                     <form>
                     <TextField id="outlined-basic" label="email" variant="outlined" value={email}

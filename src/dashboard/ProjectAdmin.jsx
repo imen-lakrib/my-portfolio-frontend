@@ -270,7 +270,7 @@ export default function ProjectAdmin() {
                     Projects management
                 </Typography> 
                 <Button variant="outlined" color='secondary' onClick={handleClickOpenAdd} startIcon={<PersonAddAltIcon />}>
-                    Ajouter
+                    Add
                 </Button>
             </Stack>
             <Box >
@@ -284,7 +284,7 @@ export default function ProjectAdmin() {
                                     <FormControl sx={{ mx: 1, width: '50%' }} variant="outlined">
                                         <OutlinedInput
                                             size='small'
-                                            placeholder='Chercher'
+                                            placeholder='Search'
                                             type='text'
                                             onChange={(e) => { setSearch(e.target.value) }}
                                             value={search}
@@ -465,7 +465,7 @@ export default function ProjectAdmin() {
                                         count={projects.length}
                                         rowsPerPage={rowsPerPage}
                                         page={page}
-                                        labelRowsPerPage={"Element par page"}
+                                        labelRowsPerPage={"Element in page"}
                                         onPageChange={handleChangePage}
                                         onRowsPerPageChange={handleChangeRowsPerPage}
                                     />}
@@ -576,7 +576,7 @@ export default function ProjectAdmin() {
 
                         <DialogActions>
                             <Button onClick={handleCloseAdd} autoFocus>Cancel</Button>
-                            <Button onClick={handleSubmitAdd}>Ajouter</Button>
+                            <Button onClick={handleSubmitAdd}>Add</Button>
                         </DialogActions>
                     </form>
                 </DialogContent>

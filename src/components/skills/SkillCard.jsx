@@ -13,9 +13,11 @@ function SkillCard({ skill }) {
 
         <Box sx={{ borderTop: '1px solid gray', width: '100%' }} />
         <Typography sx={{ p: 1 }}>
-          {skill?.technologies?.split(",").map((technology, index) => (
-            <span key={index}>{technology}</span>
-          ))}
+          {skill?.technologies?.split(",").map((technology, index) => {
+            return (
+              <span key={index}>{technology} </span>
+            )
+          })}
         </Typography>
 
 

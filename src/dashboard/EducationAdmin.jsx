@@ -258,7 +258,7 @@ export default function EducationAdmin() {
                                     <FormControl sx={{ mx: 1, width: '50%' }} variant="outlined">
                                         <OutlinedInput
                                             size='small'
-                                            placeholder='Chercher'
+                                            placeholder='Search'
                                             type='text'
                                             onChange={(e) => { setSearch(e.target.value) }}
                                             value={search}
@@ -446,7 +446,7 @@ export default function EducationAdmin() {
                                         count={educations.length}
                                         rowsPerPage={rowsPerPage}
                                         page={page}
-                                        labelRowsPerPage={"Element par page"}
+                                        labelRowsPerPage={"Element in page"}
                                         onPageChange={handleChangePage}
                                         onRowsPerPageChange={handleChangeRowsPerPage}
                                     />}
@@ -519,7 +519,7 @@ export default function EducationAdmin() {
                 aria-describedby="alert-dialog-description">
                 <DialogContent sx={{ padding: "20px 40px" }}>
                     <Typography sx={{ fontSize: '40px', fontWeight: "bold" }}>
-                        Ajouter une education
+                        Add education
                     </Typography>
                     <form>
                         <TextField id="outlined-basic" label="start at" variant="outlined" value={start}

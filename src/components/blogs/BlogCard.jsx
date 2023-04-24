@@ -27,14 +27,18 @@ function BlogCard({ blog }) {
         </Box>
 
         <Typography sx={{ p: 1 }}>
-          {blog?.technologies?.split(",").map((technology, index) => (
-            <span key={index}>{technology}</span>
-          ))}
+          {blog?.technologies?.split(",").map((technology, index) =>{
+            return(
+              
+                <span key={index}>{technology} </span>
+              
+            )
+          })}
         </Typography>
 
         <Box sx={{ borderTop: '1px solid gray', width: '100%' }} />
         <Typography sx={{ px: 2, fontWeight: 500, fontSize: "25px", color: "white" }}>{blog?.title}</Typography>
-        <Typography sx={{ px: 2 }}>{blog?.description}</Typography>
+        <Typography sx={{ px: 2 }}>{blog?.description.slice(0, 50) + "..."}</Typography>
 
         <Link to={`/blogs/${blog?._id}`}>
           <Button component="a"
