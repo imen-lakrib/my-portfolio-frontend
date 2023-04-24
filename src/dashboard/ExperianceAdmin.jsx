@@ -26,7 +26,7 @@ export default function ExperianceAdmin() {
 // get all experiments
     const getExperiances = () => {
         setLoading(true)
-        axios.get('http://localhost:3010/experiance')
+        axios.get('https://my-portfolio-backend-final.vercel.app//experiance')
             .then(res => {
                 setExperiances(res.data)
                 setLoading(false)
@@ -173,7 +173,7 @@ export default function ExperianceAdmin() {
             
 
     const editData = () => {
-        axios.put(`http://localhost:3010/experiance/${selected._id}`, {
+        axios.put(`https://my-portfolio-backend-final.vercel.app//experiance/${selected._id}`, {
             title : title,
             description : description,
             company: company,
@@ -194,7 +194,7 @@ export default function ExperianceAdmin() {
 
     const deleteData = (id) => {
 
-        axios.delete(`http://localhost:3010/experiance/${id}`, {
+        axios.delete(`https://my-portfolio-backend-final.vercel.app//experiance/${id}`, {
                     headers : {
                         "Authorization" : `Bearer ${localStorage.getItem("token")}`
                     }
@@ -208,7 +208,7 @@ export default function ExperianceAdmin() {
     const addData = () => {
 
         try {
-            axios.post('http://localhost:3010/experiance/', {
+            axios.post('https://my-portfolio-backend-final.vercel.app//experiance/', {
                 title : title,
                 description : description,
                 company: company,

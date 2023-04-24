@@ -12,7 +12,7 @@ export const EducationsProvider = ({ children }) => {
     const fetchEducations = async () => {
       try {
         setIsLoading(true)
-        const res = await axios.get("http://localhost:3010/education/");
+        const res = await axios.get("https://my-portfolio-backend-final.vercel.app//education/");
         setEducations(res.data);
         setIsLoading(false)
 

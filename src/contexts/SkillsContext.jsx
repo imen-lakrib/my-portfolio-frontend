@@ -12,7 +12,7 @@ export const SkillsProvider = ({ children }) => {
     const fetchSkills = async () => {
       try {
         setIsLoading(true)
-        const res = await axios.get("http://localhost:3010/skill/");
+        const res = await axios.get("https://my-portfolio-backend-final.vercel.app//skill/");
         setSkills(res.data);
         setIsLoading(false)
       } catch (error) {

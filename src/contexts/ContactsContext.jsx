@@ -12,7 +12,7 @@ export const ContactsProvider = ({ children }) => {
     const fetchContacts = async () => {
       try {
         setIsLoading(true)
-        const res = await axios.get("http://localhost:3010/contact/");
+        const res = await axios.get("https://my-portfolio-backend-final.vercel.app//contact/");
         setContacts(res.data);
         setIsLoading(false)
       } catch (error) {

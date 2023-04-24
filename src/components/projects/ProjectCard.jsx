@@ -7,7 +7,7 @@ function ProjectCard({ project }) {
   //     backgroundImage: `url("./Rectangle 22.jpg")`,
 
   const styles = {
-    backgroundImage: `url("http://localhost:3010/uploads/${project?.image}")`,
+    backgroundImage: `url("https://my-portfolio-backend-final.vercel.app//uploads/${project?.image}")`,
 
     // backgroundImage: `url("/uploads/"+project?.image)`,
 
