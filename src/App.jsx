@@ -27,6 +27,7 @@ import { EducationsProvider } from "./contexts/EducationsContext.jsx";
 import { ExperiancesProvider } from "./contexts/ExperianceContext.jsx";
 import { ProjectsProvider } from "./contexts/ProjectsContext.jsx";
 import SingleBlogPost from "./pages/blog/SingleBlogPost.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 
 function App() {
@@ -75,6 +76,9 @@ function App() {
                           <Route path="projectAdmin" element={<ProjectAdmin />} />
 
                         </Route>
+
+                        {/* catch-all route for non-existing routes */}
+                        <Route path="*" element={<NotFound/>} />
 
 
 

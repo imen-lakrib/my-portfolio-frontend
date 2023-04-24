@@ -20,11 +20,7 @@ import {
 } from '@mui/icons-material';
 import { EducationsContext } from "../../contexts/EducationsContext"
 
-const steps = [
-  { label: 'Education', description: 'My educational qualifications', icon: <SchoolIcon /> },
-  { label: 'Work Experience', description: 'My work experience', icon: <WorkIcon /> },
-  { label: 'Skills', description: 'My skills', icon: <DoneAllIcon /> },
-];
+
 
 export default function EducationStepper() {
 
@@ -50,12 +46,12 @@ export default function EducationStepper() {
         {educations.map(({ title, description, university, start, end }, index) => (
           <Step key={title}>
             <StepLabel StepIconComponent={StepIcon}>
-              {title}
+              <Typography  variant='h6' sx={{color:"white", fontWeight:"bolder"}}> {title}</Typography>
             </StepLabel>
             <StepContent>
-              <Chip label={university} />
-              <span> {start}--{end}</span>
-              <Typography>{description}</Typography>
+              <Chip label={university} color="primary" variant="outlined" />
+              <span style={{color:"#65748B"}}> {start}--{end}</span>
+              <Typography color="primary.contrastText">{description}</Typography>
               <Box sx={{ mb: 2 }}>
                 <div>
                   <Button

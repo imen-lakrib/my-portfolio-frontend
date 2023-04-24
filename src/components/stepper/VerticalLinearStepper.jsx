@@ -19,11 +19,7 @@ import {
   DoneAll as DoneAllIcon,
 } from '@mui/icons-material';
 import {ExperiancesContext} from "../../contexts/ExperianceContext"
-const steps = [
-  { label: 'Education', description: 'My educational qualifications', icon: <SchoolIcon /> },
-  { label: 'Work Experience', description: 'My work experience', icon: <WorkIcon /> },
-  { label: 'Skills', description: 'My skills', icon: <DoneAllIcon /> },
-];
+
 
 export default function VerticalLinearStepper() {
 
@@ -50,12 +46,13 @@ export default function VerticalLinearStepper() {
         {experiances.map(({ title, description, company, start, end }, index) => (
           <Step key={title}>
             <StepLabel StepIconComponent={StepIcon}>
-              {title}
+              <Typography variant='h6' sx={{color:"white", fontWeight:"bolder"}}>{title}</Typography>
             </StepLabel>
             <StepContent>
-            <Chip label={company} />
-              <span> {start}--{end}</span>
-              <Typography>{description}</Typography>
+            <Chip label={company} color="primary" variant="outlined" />
+
+              <span style={{color:"#65748B"}}> {start}--{end}</span>
+              <Typography color="primary.contrastText">{description}</Typography>
               <Box sx={{ mb: 2 }}>
                 <div>
                   <Button
@@ -82,7 +79,7 @@ export default function VerticalLinearStepper() {
       </Stepper>
       {activeStep === experiances.length && (
         <Box sx={{ p: 3 }}>
-          <Typography>This is my work experience. I'm always looking for new challenges.</Typography>
+          <Typography>I'm always looking for new challenges.</Typography>
           <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
             Reset
           </Button>
