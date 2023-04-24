@@ -5,14 +5,19 @@ export const BlogsContext = createContext();
 
 export const BlogsProvider = ({ children }) => {
   const [blogs, setBlogs] = useState([]);
+  const [isLoading, setIsLoading]= useState(false)
 
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
+        setIsLoading(true)
         const res = await axios.get("http://localhost:3010/blog/");
         setBlogs(res.data);
+        setIsLoading(false);
       } catch (error) {
         console.error(error);
+        setIsLoading(false)
+
       }
     };
 
@@ -20,7 +25,7 @@ export const BlogsProvider = ({ children }) => {
   }, []);
 
   return (
-    <BlogsContext.Provider value={blogs}>
+    <BlogsContext.Provider value={{blogs,isLoading}}>
       {children}
     </BlogsContext.Provider>
   );

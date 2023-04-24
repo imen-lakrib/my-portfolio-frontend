@@ -5,9 +5,10 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { ContactsContext } from '../../contexts/ContactsContext';
+import Loader from '../Loader';
 
 function Footer() {
-    const contacts = useContext(ContactsContext);
+    const { contacts, isLoading } = useContext(ContactsContext);
 
     return (
         <div>
@@ -15,7 +16,7 @@ function Footer() {
 
 
             <Container sx={{ pt: 10 }}>
-                <Grid container spacing={2}>
+                {isLoading ? <Loader /> : (<Grid container spacing={2}>
                     <Grid item xs={12} md={8}>
                         <Box display="flex" justifyContent="flex-start" alignItems="center" color="primary.light" >
                             <img src='/Logo.png' alt='logo' />
@@ -47,7 +48,8 @@ function Footer() {
                         <Typography py={2} color="primary.contrastText">© Copyright 2023. Made by Imen Lakrib</Typography>
                     </Grid>
 
-                </Grid>
+                </Grid>)}
+
 
             </Container>
         </div>

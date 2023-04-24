@@ -3,10 +3,11 @@ import SectionTitle from '../customeComponents/SectionTitle'
 import { Box, Container, Grid } from '@mui/material'
 import SkillCard from './SkillCard'
 import { SkillsContext } from '../../contexts/SkillsContext';
+import Loader from '../Loader';
 
 function SkillsSection() {
 
-  const skills = useContext(SkillsContext);
+  const { skills, isLoading } = useContext(SkillsContext);
 
 
 
@@ -29,13 +30,13 @@ function SkillsSection() {
           </Grid>
           <Grid item xs={12} md={7}>
 
-            <Grid container spacing={1}>
+            {isLoading ? <Loader /> : (<Grid container spacing={1}>
               {skills.map((skill, index) => (
                 <Grid item xs={12} sm={6} md={4} key={index}>
                   <SkillCard skill={skill} />
                 </Grid>
               ))}
-            </Grid>
+            </Grid>)}
           </Grid>
 
 

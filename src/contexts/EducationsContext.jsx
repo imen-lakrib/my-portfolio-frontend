@@ -5,14 +5,21 @@ export const EducationsContext = createContext();
 
 export const EducationsProvider = ({ children }) => {
   const [educations, setEducations] = useState([]);
+  const [isLoading, setIsLoading]= useState(false)
+
 
   useEffect(() => {
     const fetchEducations = async () => {
       try {
+        setIsLoading(true)
         const res = await axios.get("http://localhost:3010/education/");
         setEducations(res.data);
+        setIsLoading(false)
+
       } catch (error) {
         console.error(error);
+        setIsLoading(false)
+
       }
     };
 
@@ -20,7 +27,7 @@ export const EducationsProvider = ({ children }) => {
   }, []);
 
   return (
-    <EducationsContext.Provider value={educations}>
+    <EducationsContext.Provider value={{educations, isLoading}}>
       {children}
     </EducationsContext.Provider>
   );

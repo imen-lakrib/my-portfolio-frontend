@@ -18,26 +18,21 @@ const NotFound = () => {
         The page you're looking for doesn't exist. Please check the URL or go back to the  <Link  component="a"
         href="/"
         sx={{
-          color: 'primary',
+          color: '#FFDF39',
+          textDecoration: 'none',
           position: 'relative',
-          '&:hover': {
-            textDecoration: 'none',
-            '&::after': {
-              content: '""',
-              position: 'absolute',
-              left: 0,
-              bottom: -2,
-              width: '100%',
-              borderBottom: '2px solid',
-              borderBottomColor: 'primary.main',
-              transition: 'transform 0.3s ease',
-              transform: 'scaleX(0)',
-              transformOrigin: 'left',
-            },
-            '&:hover::after': {
-              transform: 'scaleX(1)',
-              transformOrigin: 'right',
-            },
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            bottom: '-2px',
+            left: 0,
+            width: '0%',
+            height: '2px',
+            backgroundColor: '#FFDF39',
+            transition: 'width 0.3s ease',
+          },
+          '&:hover::after': {
+            width: '100%',
           },
         }}>
           homepage

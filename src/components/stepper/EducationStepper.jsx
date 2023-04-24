@@ -19,12 +19,13 @@ import {
   DoneAll as DoneAllIcon,
 } from '@mui/icons-material';
 import { EducationsContext } from "../../contexts/EducationsContext"
+import Loader from '../Loader';
 
 
 
 export default function EducationStepper() {
 
-  const educations = useContext(EducationsContext);
+  const {educations, isLoading} = useContext(EducationsContext);
 
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -42,7 +43,7 @@ export default function EducationStepper() {
 
   return (
     <Box sx={{ maxWidth: 400 }}>
-      <Stepper activeStep={activeStep} orientation="vertical">
+     {isLoading? <Loader/>: ( <Stepper activeStep={activeStep} orientation="vertical">
         {educations.map(({ title, description, university, start, end }, index) => (
           <Step key={title}>
             <StepLabel StepIconComponent={StepIcon}>
@@ -75,7 +76,7 @@ export default function EducationStepper() {
             </StepContent>
           </Step>
         ))}
-      </Stepper>
+      </Stepper>)}
       {activeStep === educations.length && (
         <Box sx={{ p: 3 }}>
           <Typography>This is my work experience. I'm always looking for new challenges.</Typography>

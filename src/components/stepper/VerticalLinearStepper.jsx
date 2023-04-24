@@ -19,12 +19,13 @@ import {
   DoneAll as DoneAllIcon,
 } from '@mui/icons-material';
 import {ExperiancesContext} from "../../contexts/ExperianceContext"
+import Loader from '../Loader';
 
 
 export default function VerticalLinearStepper() {
 
   // 
-  const experiances = useContext(ExperiancesContext);
+  const {experiances, isLoading} = useContext(ExperiancesContext);
 
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -42,7 +43,7 @@ export default function VerticalLinearStepper() {
 
   return (
     <Box sx={{ maxWidth: 400 }}>
-      <Stepper activeStep={activeStep} orientation="vertical">
+      {isLoading? <Loader/>: (<Stepper activeStep={activeStep} orientation="vertical">
         {experiances.map(({ title, description, company, start, end }, index) => (
           <Step key={title}>
             <StepLabel StepIconComponent={StepIcon}>
@@ -76,7 +77,8 @@ export default function VerticalLinearStepper() {
             </StepContent>
           </Step>
         ))}
-      </Stepper>
+      </Stepper>)}
+      
       {activeStep === experiances.length && (
         <Box sx={{ p: 3 }}>
           <Typography>I'm always looking for new challenges.</Typography>

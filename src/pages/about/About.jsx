@@ -5,10 +5,11 @@ import SkillCard from '../../components/skills/SkillCard'
 import VerticalLinearStepper from '../../components/stepper/VerticalLinearStepper'
 import EducationStepper from '../../components/stepper/EducationStepper'
 import { SkillsContext } from '../../contexts/SkillsContext'
+import Loader from '../../components/Loader'
 
 function About() {
 
-  const skills = useContext(SkillsContext);
+  const { skills, isLoading } = useContext(SkillsContext);
 
   return (
     <Container>
@@ -52,7 +53,7 @@ function About() {
       <Box sx={{ p: 4 }}>
         <PageTitle PageTitle={"skills"} symbol={"#"} subTitle={""} />
         <Container >
-          <Grid container spacing={1}>
+          {isLoading ? <Loader /> : (<Grid container spacing={1}>
 
             {skills.map((skill, index) => {
               return (
@@ -63,7 +64,8 @@ function About() {
               )
             })}
 
-          </Grid>
+          </Grid>)}
+
 
         </Container>
 
@@ -73,11 +75,11 @@ function About() {
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
             <PageTitle PageTitle={"work-experiance"} symbol={"#"} subTitle={""} />
-            <VerticalLinearStepper  />
+            <VerticalLinearStepper />
           </Grid>
           <Grid item xs={12} md={6}>
             <PageTitle PageTitle={"education"} symbol={"#"} subTitle={""} />
-            <EducationStepper  />
+            <EducationStepper />
           </Grid>
 
         </Grid>

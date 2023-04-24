@@ -5,8 +5,9 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { ContactsContext } from '../../contexts/ContactsContext';
+import Loader from '../Loader';
 function SocialMedia() {
-  const contacts = useContext(ContactsContext);
+  const { contacts, isLoading } = useContext(ContactsContext);
 
   return (
     <Box sx={{ position: "fixed", top: "0px", left: "10px", color: "primary.contrastText" }}>
@@ -14,16 +15,16 @@ function SocialMedia() {
       <div style={{ alignItems: "center", flexDirection: "column", display: "flex" }}>
         <Box sx={{ borderLeft: '2px solid gray', height: '180px' }} />
 
-        <IconButton  component="a"  href={`https://www.github.com/${contacts[0]?.github}`}  target="_blank" >
+        {isLoading ? <Loader /> : (<><IconButton component="a" href={`https://www.github.com/${contacts[0]?.github}`} target="_blank" >
           <GitHubIcon />
         </IconButton>
-        <IconButton  component="a"  href={`https://www.twitter.com/${contacts[0]?.twitter}`}  target="_blank" >
-        <TwitterIcon  />
-        </IconButton>
+          <IconButton component="a" href={`https://www.twitter.com/${contacts[0]?.twitter}`} target="_blank" >
+            <TwitterIcon />
+          </IconButton>
 
-        <IconButton  component="a"  href={`https://www.linkedin.com/in/${contacts[0]?.linkedin}`}  target="_blank" >
-        <LinkedInIcon />
-        </IconButton>
+          <IconButton component="a" href={`https://www.linkedin.com/in/${contacts[0]?.linkedin}`} target="_blank" >
+            <LinkedInIcon />
+          </IconButton></>)}
 
 
 

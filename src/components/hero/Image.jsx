@@ -11,7 +11,7 @@ function Image() {
       <Avatar variant="square" alt="imen lakrib" src="./myphoto-bg.png" sx={{ width: { xs: "250px", sm: "250px", md: '350px' }, height: { xs: "250px", sm: "250px", md: '350px' }, zIndex: 2, textAlign: "center" }} />
       <Box sx={{ border: "1px solid gray", p: 1, color: "primary.contrastText", display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
         <WorkHistoryIcon sx={{ color: "secondary.main", fontSize: "16px" }} />
-        <Typography>Currently working on <span style={{ color: "#ffffff" }}>Portfolio</span></Typography>
+        <Typography>Currently working on <span  style={{ color: "#ffffff" }}>Portfolio</span></Typography>
       </Box>
       <img style={{ zIndex: 3, position: "absolute", top: "250px", right: "30px" }} src="./Dots.png" alt='dots' />
 
