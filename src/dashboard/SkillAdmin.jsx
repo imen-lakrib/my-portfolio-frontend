@@ -26,7 +26,7 @@ export default function SkillAdmin() {
 // get all experiments
     const getSkills = () => {
         setLoading(true)
-        axios.get('https://my-portfolio-backend-final.vercel.app//skill/')
+        axios.get('https://my-portfolio-backend-final.vercel.app/skill/')
             .then(res => {
                 setSkills(res.data)
                 setLoading(false)
@@ -162,7 +162,7 @@ export default function SkillAdmin() {
             
 
     const editData = () => {
-        axios.put(`https://my-portfolio-backend-final.vercel.app//skill/${selected._id}`, {
+        axios.put(`https://my-portfolio-backend-final.vercel.app/skill/${selected._id}`, {
             title : title,
             technologies : technologies,
             
@@ -181,7 +181,7 @@ export default function SkillAdmin() {
 
     const deleteData = (id) => {
 
-        axios.delete(`https://my-portfolio-backend-final.vercel.app//skill/${id}`, {
+        axios.delete(`https://my-portfolio-backend-final.vercel.app/skill/${id}`, {
                     headers : {
                         "Authorization" : `Bearer ${localStorage.getItem("token")}`
                     }
@@ -195,7 +195,7 @@ export default function SkillAdmin() {
     const addData = () => {
 
         try {
-            axios.post('https://my-portfolio-backend-final.vercel.app//skill/', {
+            axios.post('https://my-portfolio-backend-final.vercel.app/skill/', {
                 title : title,
                 technologies : technologies,
                

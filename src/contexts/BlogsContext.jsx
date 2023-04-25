@@ -11,7 +11,7 @@ export const BlogsProvider = ({ children }) => {
     const fetchBlogs = async () => {
       try {
         setIsLoading(true)
-        const res = await axios.get("https://my-portfolio-backend-final.vercel.app//blog/");
+        const res = await axios.get("https://my-portfolio-backend-final.vercel.app/blog/");
         setBlogs(res.data);
         setIsLoading(false);
       } catch (error) {

@@ -30,7 +30,7 @@ export default function ProjectAdmin() {
 
     const getProjects = () => {
         setLoading(true)
-        axios.get('https://my-portfolio-backend-final.vercel.app//project')
+        axios.get('https://my-portfolio-backend-final.vercel.app/project')
             .then(res => {
                 setProjects(res.data)
                 setLoading(false)
@@ -196,7 +196,7 @@ export default function ProjectAdmin() {
             
 
     const editData = () => {
-        axios.put(`https://my-portfolio-backend-final.vercel.app//project/${selected._id}`, {
+        axios.put(`https://my-portfolio-backend-final.vercel.app/project/${selected._id}`, {
             title : title,
             description: description,
             link: link,
@@ -214,7 +214,7 @@ export default function ProjectAdmin() {
     const editAvatar = () => {
         const formData = new FormData();
         formData.append("image", image);
-        axios.put(`https://my-portfolio-backend-final.vercel.app//project/image/${selected._id}`,formData,{headers: {
+        axios.put(`https://my-portfolio-backend-final.vercel.app/project/image/${selected._id}`,formData,{headers: {
             "Content-Type": "multipart/form-data",
             "Authorization" : `Bearer ${localStorage.getItem("token")}`
           },})
@@ -226,7 +226,7 @@ export default function ProjectAdmin() {
 
     const deleteData = (id) => {
 
-        axios.delete(`https://my-portfolio-backend-final.vercel.app//project/${id}`, {
+        axios.delete(`https://my-portfolio-backend-final.vercel.app/project/${id}`, {
                     headers : {
                         "Authorization" : `Bearer ${localStorage.getItem("token")}`
                     }
@@ -246,7 +246,7 @@ export default function ProjectAdmin() {
         formData.append("technologies", technologies);
 
 
-        axios.post('https://my-portfolio-backend-final.vercel.app//project/',formData,{
+        axios.post('https://my-portfolio-backend-final.vercel.app/project/',formData,{
             headers: {
                 "Content-Type": "multipart/form-data",
                 "Authorization" : `Bearer ${localStorage.getItem("token")}`
@@ -329,7 +329,7 @@ export default function ProjectAdmin() {
                                                             <TableCell align="left"
                                                                 component="th" scope="row" >
                                                                 <Stack direction="row" alignItems="center" >
-                                                                    <Avatar alt="Remy Sharp" src={"https://my-portfolio-backend-final.vercel.app//uploads/"+row.image} />
+                                                                    <Avatar alt="Remy Sharp" src={"https://my-portfolio-backend-final.vercel.app/uploads/"+row.image} />
                                                                    
                                                                 </Stack>
                                                             </TableCell>

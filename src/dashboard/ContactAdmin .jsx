@@ -26,7 +26,7 @@ export default function ContactAdmin() {
     // get all experiments
     const getContacts = () => {
         setLoading(true)
-        axios.get('https://my-portfolio-backend-final.vercel.app//contact/')
+        axios.get('https://my-portfolio-backend-final.vercel.app/contact/')
             .then(res => {
                 setContacts(res.data)
                 setLoading(false)
@@ -180,7 +180,7 @@ export default function ContactAdmin() {
 
 
     const editData = () => {
-        axios.put(`https://my-portfolio-backend-final.vercel.app//contact/${selected._id}`, {
+        axios.put(`https://my-portfolio-backend-final.vercel.app/contact/${selected._id}`, {
             email: email,
             fullName: fullName,
             job: job,
@@ -205,7 +205,7 @@ export default function ContactAdmin() {
 
     const deleteData = (id) => {
 
-        axios.delete(`https://my-portfolio-backend-final.vercel.app//contact/${id}`, {
+        axios.delete(`https://my-portfolio-backend-final.vercel.app/contact/${id}`, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
             }
@@ -219,7 +219,7 @@ export default function ContactAdmin() {
     const addData = () => {
 
         try {
-            axios.post('https://my-portfolio-backend-final.vercel.app//contact/', {
+            axios.post('https://my-portfolio-backend-final.vercel.app/contact/', {
                 email: email,
                 fullName: fullName,
                 job: job,

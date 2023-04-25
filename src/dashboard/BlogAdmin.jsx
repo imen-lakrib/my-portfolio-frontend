@@ -28,7 +28,7 @@ export default function BlogAdmin() {
 
     const getBlogs = () => {
         setLoading(true)
-        axios.get('https://my-portfolio-backend-final.vercel.app//blog')
+        axios.get('https://my-portfolio-backend-final.vercel.app/blog')
             .then(res => {
                 setBlogs(res.data)
                 setLoading(false)
@@ -193,7 +193,7 @@ export default function BlogAdmin() {
 
 
     const editData = () => {
-        axios.put(`https://my-portfolio-backend-final.vercel.app//blog/${selected._id}`, {
+        axios.put(`https://my-portfolio-backend-final.vercel.app/blog/${selected._id}`, {
             title: title,
             description: description,
             author: author,
@@ -211,7 +211,7 @@ export default function BlogAdmin() {
     const editAvatar = () => {
         const formData = new FormData();
         formData.append("imen", imen);
-        axios.put(`https://my-portfolio-backend-final.vercel.app//blog/image/${selected._id}`, formData, {
+        axios.put(`https://my-portfolio-backend-final.vercel.app/blog/image/${selected._id}`, formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -225,7 +225,7 @@ export default function BlogAdmin() {
 
     const deleteData = (id) => {
 
-        axios.delete(`https://my-portfolio-backend-final.vercel.app//blog/${id}`, {
+        axios.delete(`https://my-portfolio-backend-final.vercel.app/blog/${id}`, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
             }
@@ -244,7 +244,7 @@ export default function BlogAdmin() {
         formData.append("author", author);
         formData.append("technologies", technologies);
 
-        axios.post('https://my-portfolio-backend-final.vercel.app//blog/', formData, {
+        axios.post('https://my-portfolio-backend-final.vercel.app/blog/', formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -328,7 +328,7 @@ export default function BlogAdmin() {
                                                                 component="th" scope="row" >
                                                                 <Stack direction="row" alignItems="center" >
                                                                     {/* <Avatar alt="Remy Sharp" src={"/uploads/" + row.imen} /> */}
-                                                                    <Avatar alt="Remy Sharp" src={"https://my-portfolio-backend-final.vercel.app//uploads/" + row.imen} />
+                                                                    <Avatar alt="Remy Sharp" src={"https://my-portfolio-backend-final.vercel.app/uploads/" + row.imen} />
 
 
                                                                 </Stack>

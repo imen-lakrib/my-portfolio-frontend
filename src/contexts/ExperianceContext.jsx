@@ -12,7 +12,7 @@ export const ExperiancesProvider = ({ children }) => {
     const fetchExperiances = async () => {
       try {
         setIsLoading(true)
-        const res = await axios.get("https://my-portfolio-backend-final.vercel.app//experiance/");
+        const res = await axios.get("https://my-portfolio-backend-final.vercel.app/experiance/");
         setExperiances(res.data);
         setIsLoading(false)
 

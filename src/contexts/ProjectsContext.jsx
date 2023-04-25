@@ -12,7 +12,7 @@ export const ProjectsProvider = ({ children }) => {
     const fetchProjects = async () => {
       try {
         setIsLoading(true)
-        const res = await axios.get("https://my-portfolio-backend-final.vercel.app//project/");
+        const res = await axios.get("https://my-portfolio-backend-final.vercel.app/project/");
         setProjects(res.data);
         setIsLoading(false)
 

@@ -26,7 +26,7 @@ export default function EducationAdmin() {
 // get all experiments
     const getEducations = () => {
         setLoading(true)
-        axios.get('https://my-portfolio-backend-final.vercel.app//education/')
+        axios.get('https://my-portfolio-backend-final.vercel.app/education/')
             .then(res => {
                 setEducations(res.data)
                 setLoading(false)
@@ -173,7 +173,7 @@ export default function EducationAdmin() {
             
 
     const editData = () => {
-        axios.put(`https://my-portfolio-backend-final.vercel.app//education/${selected._id}`, {
+        axios.put(`https://my-portfolio-backend-final.vercel.app/education/${selected._id}`, {
             title : title,
             description : description,
             university: university,
@@ -194,7 +194,7 @@ export default function EducationAdmin() {
 
     const deleteData = (id) => {
 
-        axios.delete(`https://my-portfolio-backend-final.vercel.app//education/${id}`, {
+        axios.delete(`https://my-portfolio-backend-final.vercel.app/education/${id}`, {
                     headers : {
                         "Authorization" : `Bearer ${localStorage.getItem("token")}`
                     }
@@ -208,7 +208,7 @@ export default function EducationAdmin() {
     const addData = () => {
 
         try {
-            axios.post('https://my-portfolio-backend-final.vercel.app//education/', {
+            axios.post('https://my-portfolio-backend-final.vercel.app/education/', {
                 title : title,
                 description : description,
                 university: university,
