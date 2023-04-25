@@ -10,6 +10,8 @@ function MyMenu() {
     { path: "/works", name: "Work" },
     { path: "/about", name: "About" },
     { path: "/blog", name: "Blog" },
+    { path: "/secretpannel/login", name: "login" },
+    { path: "/dashboard", name: "dashboard" },
   ];
 
   const { pathname } = useLocation();
