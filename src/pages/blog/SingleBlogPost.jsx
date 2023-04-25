@@ -44,7 +44,7 @@ function SingleBlogPost() {
             <Typography sx={{ fontWeight: 500, fontSize: { xs: "15px", sm: "15px", md: '25px' } }}>{blogPost?.title}</Typography>
           </div>
 
-          <Box sx={{width:"520px", height:"350px"}}><img style={{width:"100%"}} alt='blogimage' src={`https://my-portfolio-backend-final.vercel.app/uploads/${blogPost?.imen}`} /></Box>
+          <Box sx={{width:{xs:"250px", sm:"300", md:"520px"}, height:{xs:"250px", sm:"300", md:"350px"}}}><img style={{width:"100%"}} alt='blogimage' src={`https://my-portfolio-backend-final.vercel.app/uploads/${blogPost?.imen}`} /></Box>
           <Typography sx={{ p: 2 }} color="primary.contrastText">{blogPost?.description}</Typography>
 
         </>)}
