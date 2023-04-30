@@ -12,6 +12,7 @@ import {
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import { Edit, Search } from '@mui/icons-material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { API_URL } from '../../ApiConfig';
 
 // components
 // Api
@@ -26,7 +27,7 @@ export default function EducationAdmin() {
 // get all experiments
     const getEducations = () => {
         setLoading(true)
-        axios.get('https://my-portfolio-backend-final.vercel.app/education/')
+        axios.get(API_URL+'education/')
             .then(res => {
                 setEducations(res.data)
                 setLoading(false)
@@ -173,7 +174,7 @@ export default function EducationAdmin() {
             
 
     const editData = () => {
-        axios.put(`https://my-portfolio-backend-final.vercel.app/education/${selected._id}`, {
+        axios.put(API_URL+`education/${selected._id}`, {
             title : title,
             description : description,
             university: university,
@@ -194,7 +195,7 @@ export default function EducationAdmin() {
 
     const deleteData = (id) => {
 
-        axios.delete(`https://my-portfolio-backend-final.vercel.app/education/${id}`, {
+        axios.delete(API_URL+`education/${id}`, {
                     headers : {
                         "Authorization" : `Bearer ${localStorage.getItem("token")}`
                     }
@@ -208,7 +209,7 @@ export default function EducationAdmin() {
     const addData = () => {
 
         try {
-            axios.post('https://my-portfolio-backend-final.vercel.app/education/', {
+            axios.post(API_URL+'education/', {
                 title : title,
                 description : description,
                 university: university,

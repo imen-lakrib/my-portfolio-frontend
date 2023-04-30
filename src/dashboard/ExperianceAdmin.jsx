@@ -12,6 +12,7 @@ import {
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import { Edit, Search } from '@mui/icons-material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { API_URL } from '../../ApiConfig';
 
 // components
 // Api
@@ -26,7 +27,7 @@ export default function ExperianceAdmin() {
 // get all experiments
     const getExperiances = () => {
         setLoading(true)
-        axios.get('https://my-portfolio-backend-final.vercel.app/experiance')
+        axios.get(API_URL+'experiance')
             .then(res => {
                 setExperiances(res.data)
                 setLoading(false)
@@ -173,7 +174,7 @@ export default function ExperianceAdmin() {
             
 
     const editData = () => {
-        axios.put(`https://my-portfolio-backend-final.vercel.app/experiance/${selected._id}`, {
+        axios.put(API_URL+`experiance/${selected._id}`, {
             title : title,
             description : description,
             company: company,
@@ -194,7 +195,7 @@ export default function ExperianceAdmin() {
 
     const deleteData = (id) => {
 
-        axios.delete(`https://my-portfolio-backend-final.vercel.app/experiance/${id}`, {
+        axios.delete(API_URL+`experiance/${id}`, {
                     headers : {
                         "Authorization" : `Bearer ${localStorage.getItem("token")}`
                     }
@@ -208,7 +209,7 @@ export default function ExperianceAdmin() {
     const addData = () => {
 
         try {
-            axios.post('https://my-portfolio-backend-final.vercel.app/experiance/', {
+            axios.post(API_URL+'experiance/', {
                 title : title,
                 description : description,
                 company: company,

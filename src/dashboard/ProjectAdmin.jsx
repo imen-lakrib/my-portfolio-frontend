@@ -16,6 +16,7 @@ import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import { Edit, Info, PlusOne, Refresh, Search } from '@mui/icons-material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
+import { API_URL } from '../../ApiConfig';
 
 // components
 // Api
@@ -30,7 +31,7 @@ export default function ProjectAdmin() {
 
     const getProjects = () => {
         setLoading(true)
-        axios.get('https://my-portfolio-backend-final.vercel.app/project')
+        axios.get(API_URL+'project')
             .then(res => {
                 setProjects(res.data)
                 setLoading(false)
@@ -196,7 +197,7 @@ export default function ProjectAdmin() {
             
 
     const editData = () => {
-        axios.put(`https://my-portfolio-backend-final.vercel.app/project/${selected._id}`, {
+        axios.put(API_URL+`project/${selected._id}`, {
             title : title,
             description: description,
             link: link,
@@ -214,7 +215,7 @@ export default function ProjectAdmin() {
     const editAvatar = () => {
         const formData = new FormData();
         formData.append("image", image);
-        axios.put(`https://my-portfolio-backend-final.vercel.app/project/image/${selected._id}`,formData,{headers: {
+        axios.put(API_URL+`project/image/${selected._id}`,formData,{headers: {
             "Content-Type": "multipart/form-data",
             "Authorization" : `Bearer ${localStorage.getItem("token")}`
           },})
@@ -226,7 +227,7 @@ export default function ProjectAdmin() {
 
     const deleteData = (id) => {
 
-        axios.delete(`https://my-portfolio-backend-final.vercel.app/project/${id}`, {
+        axios.delete(API_URL+`project/${id}`, {
                     headers : {
                         "Authorization" : `Bearer ${localStorage.getItem("token")}`
                     }
@@ -246,7 +247,7 @@ export default function ProjectAdmin() {
         formData.append("technologies", technologies);
 
 
-        axios.post('https://my-portfolio-backend-final.vercel.app/project/',formData,{
+        axios.post(API_URL+'project/',formData,{
             headers: {
                 "Content-Type": "multipart/form-data",
                 "Authorization" : `Bearer ${localStorage.getItem("token")}`
@@ -329,7 +330,7 @@ export default function ProjectAdmin() {
                                                             <TableCell align="left"
                                                                 component="th" scope="row" >
                                                                 <Stack direction="row" alignItems="center" >
-                                                                    <Avatar alt="Remy Sharp" src={"https://my-portfolio-backend-final.vercel.app/uploads/"+row.image} />
+                                                                    <Avatar alt="Remy Sharp" src={API_URL+"uploads/"+row.image} />
                                                                    
                                                                 </Stack>
                                                             </TableCell>

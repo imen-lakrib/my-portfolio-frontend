@@ -3,8 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import Loader from '../../components/Loader';
-import { API_URL } from '../../../ApiConfig';
-
+import { API_URL } from '../../../../../home/imen/Desktop/myPortfolio/imen-lakrib-portfolio/ApiConfig';
 function SingleBlogPost() {
   const { id } = useParams(); // extract the id parameter from the URL
 
@@ -17,7 +16,7 @@ function SingleBlogPost() {
     const fetchBlogs = async () => {
       try {
         setIsLoading(true)
-        const res = await axios.get(API_URL+`blog/${id}`);
+        const res = await axios.get(app/+`blog/${id}`);
         setBlogPost(res.data);
         setIsLoading(false)
       } catch (error) {
@@ -45,7 +44,7 @@ function SingleBlogPost() {
             <Typography sx={{ fontWeight: 500, fontSize: { xs: "15px", sm: "15px", md: '25px' } }}>{blogPost?.title}</Typography>
           </div>
 
-          <Box sx={{width:{xs:"250px", sm:"300", md:"520px"}, height:{xs:"250px", sm:"300", md:"350px"}}}><img style={{width:"100%"}} alt='blogimage' src={API_URL+`uploads/${blogPost?.imen}`} /></Box>
+          <Box sx={{width:{xs:"250px", sm:"300", md:"520px"}, height:{xs:"250px", sm:"300", md:"350px"}}}><img style={{width:"100%"}} alt='blogimage' src={app/+`uploads/${blogPost?.imen}`} /></Box>
           <Typography sx={{ p: 2 }} color="primary.contrastText">{blogPost?.description}</Typography>
 
         </>)}

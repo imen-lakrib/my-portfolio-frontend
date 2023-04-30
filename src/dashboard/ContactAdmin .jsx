@@ -12,6 +12,7 @@ import {
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import { Edit, Search } from '@mui/icons-material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { API_URL } from '../../ApiConfig';
 
 // components
 // Api
@@ -26,7 +27,7 @@ export default function ContactAdmin() {
     // get all experiments
     const getContacts = () => {
         setLoading(true)
-        axios.get('https://my-portfolio-backend-final.vercel.app/contact/')
+        axios.get(API_URL+'contact/')
             .then(res => {
                 setContacts(res.data)
                 setLoading(false)
@@ -180,7 +181,7 @@ export default function ContactAdmin() {
 
 
     const editData = () => {
-        axios.put(`https://my-portfolio-backend-final.vercel.app/contact/${selected._id}`, {
+        axios.put(API_URL+`contact/${selected._id}`, {
             email: email,
             fullName: fullName,
             job: job,
@@ -205,7 +206,7 @@ export default function ContactAdmin() {
 
     const deleteData = (id) => {
 
-        axios.delete(`https://my-portfolio-backend-final.vercel.app/contact/${id}`, {
+        axios.delete(API_URL+`contact/${id}`, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
             }
@@ -219,7 +220,7 @@ export default function ContactAdmin() {
     const addData = () => {
 
         try {
-            axios.post('https://my-portfolio-backend-final.vercel.app/contact/', {
+            axios.post(API_URL+'contact/', {
                 email: email,
                 fullName: fullName,
                 job: job,

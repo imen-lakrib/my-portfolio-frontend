@@ -12,6 +12,7 @@ import {
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import { Edit, Search } from '@mui/icons-material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { API_URL } from '../../ApiConfig';
 
 // components
 // Api
@@ -26,7 +27,7 @@ export default function SkillAdmin() {
 // get all experiments
     const getSkills = () => {
         setLoading(true)
-        axios.get('https://my-portfolio-backend-final.vercel.app/skill/')
+        axios.get(API_URL+'skill/')
             .then(res => {
                 setSkills(res.data)
                 setLoading(false)
@@ -162,7 +163,7 @@ export default function SkillAdmin() {
             
 
     const editData = () => {
-        axios.put(`https://my-portfolio-backend-final.vercel.app/skill/${selected._id}`, {
+        axios.put(API_URL+`skill/${selected._id}`, {
             title : title,
             technologies : technologies,
             
@@ -181,7 +182,7 @@ export default function SkillAdmin() {
 
     const deleteData = (id) => {
 
-        axios.delete(`https://my-portfolio-backend-final.vercel.app/skill/${id}`, {
+        axios.delete(API_URL+`skill/${id}`, {
                     headers : {
                         "Authorization" : `Bearer ${localStorage.getItem("token")}`
                     }
@@ -195,7 +196,7 @@ export default function SkillAdmin() {
     const addData = () => {
 
         try {
-            axios.post('https://my-portfolio-backend-final.vercel.app/skill/', {
+            axios.post(API_URL+'skill/', {
                 title : title,
                 technologies : technologies,
                

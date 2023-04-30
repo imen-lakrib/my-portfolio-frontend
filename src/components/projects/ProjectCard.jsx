@@ -1,13 +1,14 @@
 
 import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
+import { API_URL } from '../../../ApiConfig';
 
 function ProjectCard({ project }) {
 
   //     backgroundImage: `url("./Rectangle 22.jpg")`,
 
   const styles = {
-    backgroundImage: `url("https://my-portfolio-backend-final.vercel.app/uploads/${project?.image}")`,
+    backgroundImage: `url(${API_URL}"uploads/${project?.image}")`,
 
     // backgroundImage: `url("/uploads/"+project?.image)`,
 

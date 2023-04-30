@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
-
+import { API_URL } from "../../ApiConfig";
 export const BlogsContext = createContext();
 
 export const BlogsProvider = ({ children }) => {
@@ -11,7 +11,7 @@ export const BlogsProvider = ({ children }) => {
     const fetchBlogs = async () => {
       try {
         setIsLoading(true)
-        const res = await axios.get("https://my-portfolio-backend-final.vercel.app/blog/");
+        const res = await axios.get(API_URL+"blog");
         setBlogs(res.data);
         setIsLoading(false);
       } catch (error) {

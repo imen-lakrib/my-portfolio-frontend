@@ -8,7 +8,7 @@ function BlogCard({ blog }) {
   //     backgroundImage: `url("./Rectangle 22.jpg")`,
 
   const styles = {
-    backgroundImage: `url("https://my-portfolio-backend-final.vercel.app/uploads/${blog?.imen}")`,
+    backgroundImage: `url("uploads/${blog?.imen}")`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '150px',

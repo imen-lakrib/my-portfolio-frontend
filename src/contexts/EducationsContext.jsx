@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
+import { API_URL } from "../../ApiConfig";
 
 export const EducationsContext = createContext();
 
@@ -12,7 +13,7 @@ export const EducationsProvider = ({ children }) => {
     const fetchEducations = async () => {
       try {
         setIsLoading(true)
-        const res = await axios.get("https://my-portfolio-backend-final.vercel.app/education/");
+        const res = await axios.get(API_URL+"education/");
         setEducations(res.data);
         setIsLoading(false)
 
