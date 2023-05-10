@@ -2,13 +2,11 @@
 import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
 import { Link } from 'react-router-dom';
-
+import { API_URL } from '../../../ApiConfig';
 function BlogCard({ blog }) {
 
-  //     backgroundImage: `url("./Rectangle 22.jpg")`,
-
   const styles = {
-    backgroundImage: `url("uploads/${blog?.imen}")`,
+    backgroundImage: `url("${API_URL}uploads/${blog?.imen}")`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '150px',
